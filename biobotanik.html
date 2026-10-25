@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitki Biyolojisi, Kloroplast ve Kemosentez</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            950: '#022c22',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b1320;
+            color: #e2e8f0;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .interactive-part {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .interactive-part:hover {
+            filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.9));
+            opacity: 0.9;
+        }
+        .active-tab {
+            background-color: #059669 !important;
+            color: #ffffff !important;
+            border-color: #10b981 !important;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white shadow-lg shadow-emerald-600/30">
+                    <i class="fa-solid fa-leaf text-xl"></i>
+                </div>
+                <span class="text-xl font-bold bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">BioBotanik</span>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-300">
+                <a href="#bitki-yapisi" class="hover:text-emerald-400 transition-colors">Bitki Yapısı</a>
+                <a href="#kloroplast-yapisi" class="hover:text-emerald-400 transition-colors">Kloroplast & Fotosentez</a>
+                <a href="#kemosentez" class="hover:text-emerald-400 transition-colors">Kemosentez</a>
+            </div>
+
+            <a href="#bitki-yapisi" class="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-full font-medium shadow-md shadow-emerald-600/30 transition-all">
+                İncelemeye Başla
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="pt-32 pb-12 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 text-center px-4 border-b border-slate-800/50">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-block px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/50 text-emerald-400 text-xs font-semibold tracking-wider mb-4">
+                İnteraktif Biyoloji Rehberi
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                Bitkilerin Yapısı, Kloroplast Biyolojisi ve Kemosentez
+            </h1>
+            <p class="mt-4 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
+                Çiçek anatomisinden kloroplast organeline, tilakoid zarlardaki elektron taşıma sisteminden kemosentez yapan bakterilere kadar tüm biyolojik süreçleri interaktif modellerle keşfedin.
+            </p>
+        </div>
+    </header>
+
+    <!-- SECTION 1: BİTKİ YAPISI -->
+    <section id="bitki-yapisi" class="py-16 bg-slate-950 border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-emerald-400 font-bold text-xs tracking-widest uppercase">Bölüm</span>
+                <h2 class="text-3xl font-extrabold text-white mt-1">Bitki ve Çiçek Yapısı Anatomisi</h2>
+                <p class="text-slate-400 mt-2">Çiçek, kapalı tohumlu bitkilerin üreme organıdır. Çiçeği oluşturan organlara tıklayarak detaylı açıklamalarını inceleyebilirsiniz.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <!-- Interactive Plant & Flower SVG Drawing -->
+                <div class="lg:col-span-6 bg-slate-900/90 rounded-3xl p-6 border border-slate-800 flex flex-col items-center justify-center relative shadow-xl">
+                    <span class="text-xs font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-3 py-1 rounded-full mb-4">İnteraktif Şema - Bölümlere Tıklayın</span>
+                    
+                    <svg width="340" height="380" viewBox="0 0 340 380" class="w-full max-w-md h-auto">
+                        <!-- Stem (Gövde/Sap) -->
+                        <path d="M170 230 L170 350" stroke="#059669" stroke-width="12" stroke-linecap="round"/>
+                        <path d="M170 300 Q210 280 230 290 Q200 320 170 300 Z" fill="#10B981"/>
+
+                        <!-- Receptacle (Çanak Yaprak & Çiçek Tablası) -->
+                        <path class="interactive-part" onclick="showPlantInfo('canak')" d="M140 230 C140 250, 200 250, 200 230 C210 210, 130 210, 140 230 Z" fill="#047857"/>
+                        <path class="interactive-part" onclick="showPlantInfo('canak')" d="M130 220 Q110 200 100 210 Q130 240 145 230 Z" fill="#10B981"/>
+                        <path class="interactive-part" onclick="showPlantInfo('canak')" d="M210 220 Q230 200 240 210 Q210 240 195 230 Z" fill="#10B981"/>
+
+                        <!-- Petals (Taç Yapraklar - Çiçek) -->
+                        <g class="interactive-part" onclick="showPlantInfo('tac')">
+                            <!-- Back Petals -->
+                            <path d="M170 180 Q120 80 80 120 Q120 180 170 180 Z" fill="#F43F5E" opacity="0.95"/>
+                            <path d="M170 180 Q220 80 260 120 Q220 180 170 180 Z" fill="#F43F5E" opacity="0.95"/>
+                            <!-- Side Petals -->
+                            <path d="M170 180 Q100 130 100 180 Q130 220 170 180 Z" fill="#E11D48"/>
+                            <path d="M170 180 Q240 130 240 180 Q210 220 170 180 Z" fill="#E11D48"/>
+                        </g>
+
+                        <!-- Stamens (Erkek Organlar - Başçık ve Sapçık) -->
+                        <g class="interactive-part" onclick="showPlantInfo('erkek')">
+                            <!-- Left Stamen -->
+                            <path d="M160 210 Q130 160 135 120" stroke="#FBBF24" stroke-width="3" fill="none"/>
+                            <ellipse cx="135" cy="115" rx="7" ry="5" fill="#D97706"/>
+                            <!-- Right Stamen -->
+                            <path d="M180 210 Q210 160 205 120" stroke="#FBBF24" stroke-width="3" fill="none"/>
+                            <ellipse cx="205" cy="115" rx="7" ry="5" fill="#D97706"/>
+                        </g>
+
+                        <!-- Pistil / Carpel (Dişi Organ - Tepecik, Borucuk, Yumurtalık) -->
+                        <g class="interactive-part" onclick="showPlantInfo('disi')">
+                            <!-- Ovary -->
+                            <ellipse cx="170" cy="205" rx="22" ry="25" fill="#34D399" stroke="#059669" stroke-width="2"/>
+                            <!-- Style -->
+                            <path d="M170 180 L170 100" stroke="#10B981" stroke-width="7" stroke-linecap="round"/>
+                            <!-- Stigma -->
+                            <circle cx="170" cy="95" r="10" fill="#047857"/>
+                        </g>
+
+                        <!-- SVG Labels with Arrows -->
+                        <text x="250" y="115" fill="#FB7185" font-weight="bold" font-size="12">Taç Yaprak (Petal)</text>
+                        <text x="10" y="115" fill="#FBBF24" font-weight="bold" font-size="12">Erkek Organ (Stamen)</text>
+                        <text x="170" y="70" text-anchor="middle" fill="#34D399" font-weight="bold" font-size="12">Dişi Organ (Pistil)</text>
+                        <text x="10" y="235" fill="#10B981" font-weight="bold" font-size="12">Çanak Yaprak (Sepal)</text>
+                        <text x="250" y="300" fill="#059669" font-weight="bold" font-size="12">Gövde / Sap</text>
+                    </svg>
+                </div>
+
+                <!-- Plant Structure Descriptions -->
+                <div class="lg:col-span-6 space-y-4">
+                    <!-- Navigation Buttons for Parts -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <button onclick="showPlantInfo('cicek')" id="tab-cicek" class="plant-tab active-tab px-4 py-2 rounded-xl border border-slate-700 bg-slate-900 font-medium text-xs text-slate-300 hover:border-emerald-600 transition">Genel Çiçek Yapısı</button>
+                        <button onclick="showPlantInfo('tac')" id="tab-tac" class="plant-tab px-4 py-2 rounded-xl border border-slate-700 bg-slate-900 font-medium text-xs text-slate-300 hover:border-emerald-600 transition">Taç Yaprak</button>
+                        <button onclick="showPlantInfo('erkek')" id="tab-erkek" class="plant-tab px-4 py-2 rounded-xl border border-slate-700 bg-slate-900 font-medium text-xs text-slate-300 hover:border-emerald-600 transition">Erkek Organ</button>
+                        <button onclick="showPlantInfo('disi')" id="tab-disi" class="plant-tab px-4 py-2 rounded-xl border border-slate-700 bg-slate-900 font-medium text-xs text-slate-300 hover:border-emerald-600 transition">Dişi Organ</button>
+                        <button onclick="showPlantInfo('canak')" id="tab-canak" class="plant-tab px-4 py-2 rounded-xl border border-slate-700 bg-slate-900 font-medium text-xs text-slate-300 hover:border-emerald-600 transition">Çanak Yaprak</button>
+                    </div>
+
+                    <!-- Dynamic Card Content -->
+                    <div id="plant-info-card" class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-lg min-h-[260px] flex flex-col justify-between">
+                        <!-- Content injected via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: KLOROPLAST YAPISI VE FOTOSENTEZ -->
+    <section id="kloroplast-yapisi" class="py-16 bg-slate-900/60 border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-emerald-400 font-bold text-xs tracking-widest uppercase">Bölüm</span>
+                <h2 class="text-3xl font-extrabold text-white mt-1">Kloroplast Yapısı ve Fotosentez</h2>
+                <p class="text-slate-400 mt-2">Fotosentezin gerçekleştiği kloroplast organeli ve kimyasal reaksiyon aşamalarının ayrıntılı incelemesi.</p>
+            </div>
+
+            <!-- Subtab Switcher -->
+            <div class="flex justify-center mb-8">
+                <div class="bg-slate-900 p-1.5 rounded-2xl border border-slate-800 inline-flex gap-2">
+                    <button onclick="switchChloroplastSubtab('structure')" id="subtab-structure" class="px-6 py-2.5 rounded-xl font-semibold text-sm transition active-tab">
+                        <i class="fa-solid fa-microscope mr-2"></i>Kloroplast Yapısı
+                    </button>
+                    <button onclick="switchChloroplastSubtab('photosynthesis')" id="subtab-photosynthesis" class="px-6 py-2.5 rounded-xl font-semibold text-sm transition text-slate-400 hover:text-emerald-400">
+                        <i class="fa-solid fa-bolt mr-2"></i>Fotosentez Süreci
+                    </button>
+                </div>
+            </div>
+
+            <!-- SUB-SECTION 2.1: KLOROPLAST YAPISI -->
+            <div id="content-chloroplast-structure" class="space-y-8">
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <!-- SVG Chloroplast Model -->
+                    <div class="lg:col-span-6 bg-slate-950 p-6 rounded-3xl shadow-xl border border-slate-800 flex flex-col items-center justify-center relative">
+                        <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2">Kloroplast Organel Şeması</span>
+                        
+                        <svg width="340" height="260" viewBox="0 0 340 260" class="w-full max-w-md h-auto">
+                            <!-- Outer Membrane -->
+                            <ellipse cx="170" cy="130" rx="155" ry="115" fill="#047857" stroke="#10B981" stroke-width="3"/>
+                            <!-- Intermembrane Space -->
+                            <ellipse cx="170" cy="130" rx="146" ry="106" fill="#065F46" stroke="#059669" stroke-width="2"/>
+                            <!-- Inner Membrane -->
+                            <ellipse cx="170" cy="130" rx="138" ry="98" fill="#022C22" stroke="#34D399" stroke-width="2"/>
+
+                            <!-- Thylakoid Stacks (Grana 1) -->
+                            <g>
+                                <rect x="80" y="90" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="80" y="105" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="80" y="120" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="80" y="135" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="80" y="150" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                            </g>
+
+                            <!-- Thylakoid Stacks (Grana 2) -->
+                            <g>
+                                <rect x="150" y="70" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="150" y="85" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="150" y="100" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="150" y="115" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="150" y="130" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="150" y="145" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                            </g>
+
+                            <!-- Thylakoid Stacks (Grana 3) -->
+                            <g>
+                                <rect x="220" y="100" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="220" y="115" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="220" y="130" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                                <rect x="220" y="145" width="35" height="12" rx="4" fill="#10B981" stroke="#059669"/>
+                            </g>
+
+                            <!-- Stroma Lamellae -->
+                            <line x1="115" y1="125" x2="150" y2="125" stroke="#34D399" stroke-width="3"/>
+                            <line x1="185" y1="110" x2="220" y2="110" stroke="#34D399" stroke-width="3"/>
+
+                            <!-- Chloroplast DNA / Ribosomes -->
+                            <circle cx="120" cy="185" r="3" fill="#FBBF24"/>
+                            <circle cx="130" cy="190" r="2" fill="#FBBF24"/>
+                            <path d="M 210 175 Q 220 185 230 175 T 240 185" fill="none" stroke="#F43F5E" stroke-width="2"/>
+
+                            <!-- Labels -->
+                            <text x="170" y="30" text-anchor="middle" fill="#A7F3D0" font-weight="bold" font-size="11">Dış Zar</text>
+                            <text x="170" y="45" text-anchor="middle" fill="#6EE7B7" font-weight="bold" font-size="11">İç Zar</text>
+                            <text x="97" y="78" text-anchor="middle" fill="#34D399" font-weight="bold" font-size="11">Grana (Granum)</text>
+                            <text x="180" y="210" text-anchor="middle" fill="#FDE68A" font-weight="bold" font-size="11">Stroma Sıvısı</text>
+                        </svg>
+                    </div>
+
+                    <!-- 4 Main Chloroplast Components -->
+                    <div class="lg:col-span-6 grid sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-md">
+                            <div class="w-10 h-10 bg-emerald-950 text-emerald-400 border border-emerald-800/50 rounded-xl flex items-center justify-center font-bold mb-3">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-lg mb-1">Grana (Granum)</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Yassılaşmış disk şeklindeki tilakoid zarların üst üste dizilerek oluşturduğu sütun benzeri yapılardır. Tilakoid zarlarda klorofil pigmentleri ve ETS elemanları yer alır. Işığa bağımlı reaksiyonlar burada gerçekleşir.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-md">
+                            <div class="w-10 h-10 bg-teal-950 text-teal-400 border border-teal-800/50 rounded-xl flex items-center justify-center font-bold mb-3">
+                                <i class="fa-solid fa-water"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-lg mb-1">Stroma Sıvısı</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Kloroplastın içini dolduran jel benzeri akışkan sıvıdır. İçerisinde Rubisco gibi fotosentez enzimleri, DNA, RNA ve 70S ribozomlar bulunur. Işıktan bağımsız evre (Calvin Döngüsü) bu sıvıda gerçekleşir.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-md">
+                            <div class="w-10 h-10 bg-emerald-950 text-emerald-300 border border-emerald-800/50 rounded-xl flex items-center justify-center font-bold mb-3">
+                                <i class="fa-solid fa-circle-notch"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-lg mb-1">Dış Zar</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Kloroplastı sitoplazmadan ayıran tam geçirgen çift katlı lipid tabakasıdır. Üzerinde porin adı verilen geniş kanal proteinleri yer alır ve küçük moleküllerin kolayca geçişine izin verir.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-md">
+                            <div class="w-10 h-10 bg-green-950 text-green-400 border border-green-800/50 rounded-xl flex items-center justify-center font-bold mb-3">
+                                <i class="fa-solid fa-shield"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-lg mb-1">İç Zar</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Seçici geçirgen özelliğe sahiptir ve molekül geçişini sıkı bir şekilde kontrol eder. Kıvrımlar oluşturmaz; stroma sıvısını çevreler ve taşıyıcı proteinler barındırır.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUB-SECTION 2.2: FOTOSENTEZ SÜRECİ -->
+            <div id="content-photosynthesis" class="space-y-8 hidden">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Tilakoid Zarda Fotosentez -->
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-amber-950/80 text-amber-400 border border-amber-800/50 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                                <i class="fa-solid fa-sun"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Tilakoid Zarda Fotosentez</h3>
+                            <span class="inline-block px-2.5 py-1 bg-amber-950 text-amber-400 text-xs font-semibold rounded-md mb-3 border border-amber-800/40">Işığa Bağımlı Reaksiyonlar</span>
+                            <p class="text-sm text-slate-400 leading-relaxed">
+                                Güneş ışığı tilakoid zar üzerindeki klorofiller tarafından emilir. Su fotolize uğrayarak O₂, elektron ve H⁺ iyonlarına ayrışır. Elektron Taşıma Sistemi (ETS) üzerinden geçen elektronlar sayesinde ATP ve NADPH sentezlenir.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-800 text-xs font-medium text-slate-400">
+                            Girdiler: H₂O, Işık &rarr; Çıktılar: O₂, ATP, NADPH
+                        </div>
+                    </div>
+
+                    <!-- Calvin Döngüsü -->
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-emerald-950/80 text-emerald-400 border border-emerald-800/50 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                                <i class="fa-solid fa-arrows-spin"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Calvin Döngüsü</h3>
+                            <span class="inline-block px-2.5 py-1 bg-emerald-950 text-emerald-400 text-xs font-semibold rounded-md mb-3 border border-emerald-800/40">Işıktan Bağımsız Reaksiyonlar</span>
+                            <p class="text-sm text-slate-400 leading-relaxed">
+                                Stroma sıvısında gerçekleşir. Atmosferden alınan CO₂ gazı, <strong class="text-emerald-400">Rubisco</strong> enzimi yardımıyla 5-karbonlu RuBP molekülüne bağlanır. Işıklı evreden gelen ATP ve NADPH tüketilerek Glikoz (PGAL) sentezlenir.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-800 text-xs font-medium text-slate-400">
+                            Girdiler: CO₂, ATP, NADPH &rarr; Çıktılar: Glikoz (C₆H₁₂O₆)
+                        </div>
+                    </div>
+
+                    <!-- Fotosistem (PS I ve PS II) -->
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-blue-950/80 text-blue-400 border border-blue-800/50 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                                <i class="fa-solid fa-atom"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Fotosistem (PS I & PS II)</h3>
+                            <span class="inline-block px-2.5 py-1 bg-blue-950 text-blue-400 text-xs font-semibold rounded-md mb-3 border border-blue-800/40">Pigment Kompleksleri</span>
+                            <p class="text-sm text-slate-400 leading-relaxed">
+                                Tilakoid zarda bulunan, anten kompleksi ve tepkime merkezinden oluşan protein-pigment yapılarıdır. <strong class="text-blue-400">Fotosistem II (P680)</strong> suyu parçalarken, <strong class="text-blue-400">Fotosistem I (P700)</strong> NADP⁺ molekülünün indirgenmesini sağlar.
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-800 text-xs font-medium text-slate-400">
+                            İşlev: Foton yakalama & Elektron uyarımı
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: KEMOSENTEZ -->
+    <section id="kemosentez" class="py-16 bg-slate-950 border-b border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-emerald-400 font-bold text-xs tracking-widest uppercase">Bölüm</span>
+                <h2 class="text-3xl font-extrabold text-white mt-1">Kemosentez Mekanizması</h2>
+                <p class="text-slate-400 mt-2">Işık enerjisi kullanmadan, inorganik maddelerin oksidasyonu ile elde edilen kimyasal enerjiyle besin üretimi.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Info Column -->
+                <div class="space-y-6">
+                    <div class="p-6 bg-slate-900 text-white rounded-3xl shadow-xl relative overflow-hidden border border-slate-800">
+                        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl"></div>
+                        <h3 class="text-xl font-bold text-emerald-400 mb-3">Kemosentez Nedir?</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Bazı prokaryot canlıların (Nitrifiye bakterileri, kükürt bakterileri, demir bakterileri ve metanojenik arkeler) ışık enerjisine ihtiyaç duymadan, inorganik maddeleri oksitleyerek açığa çıkardıkları kimyasal enerji ile CO₂ ve H₂O'dan organik besin sentezlemesidir.
+                        </p>
+                    </div>
+
+                    <!-- Step-by-Step Chemistry (Without numbering) -->
+                    <div class="space-y-3">
+                        <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-xl bg-purple-950 text-purple-400 border border-purple-800/50 font-bold flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-flask text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">İnorganik Oksidasyon</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">NH₃, H₂S, Fe²⁺, NO₂⁻ gibi maddeler oksijenle oksitlenerek kimyasal enerji elde edilir.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-xl bg-purple-950 text-purple-400 border border-purple-800/50 font-bold flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-bolt text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">ATP Sentezi</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">Açığa çıkan kimyasal enerji ile ATP ve NADPH üretilir.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-xl bg-purple-950 text-purple-400 border border-purple-800/50 font-bold flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-seedling text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Besin Üretimi</h4>
+                                <p class="text-xs text-slate-400 mt-0.5">CO₂ ve H₂O, sentezlenen ATP kullanılarak glikoza dönüştürülür.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparison & Equation Table Card -->
+                <div class="bg-slate-900 p-6 rounded-3xl border border-slate-800 shadow-md space-y-6">
+                    <h3 class="text-lg font-bold text-white border-b border-slate-800 pb-3">Fotosentez ile Kemosentez Karşılaştırması</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left">
+                            <thead class="bg-slate-800/80 text-slate-300 uppercase font-bold">
+                                <tr>
+                                    <th class="p-2.5 rounded-l-lg">Özellik</th>
+                                    <th class="p-2.5">Fotosentez</th>
+                                    <th class="p-2.5 rounded-r-lg">Kemosentez</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800 text-slate-300">
+                                <tr>
+                                    <td class="p-2.5 font-bold text-emerald-400">Enerji Kaynağı</td>
+                                    <td class="p-2.5">Güneş Işığı</td>
+                                    <td class="p-2.5">Kimyasal Bağ Enerjisi</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 font-bold text-emerald-400">Klorofil</td>
+                                    <td class="p-2.5">Gerekli</td>
+                                    <td class="p-2.5">Gerekli Değil</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 font-bold text-emerald-400">Zaman</td>
+                                    <td class="p-2.5">Sadece Gündüz</td>
+                                    <td class="p-2.5">Gece ve Gündüz</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 font-bold text-emerald-400">Canlı Türü</td>
+                                    <td class="p-2.5">Bitkiler, Algler, Öglena, Siyanobakteriler</td>
+                                    <td class="p-2.5">Sadece Bazı Prokaryotlar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Chemical Reaction Equation Box -->
+                    <div class="bg-slate-950 text-white p-4 rounded-2xl border border-emerald-800/60 shadow-inner">
+                        <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider block mb-2">Nitrifikasyon Bakterilerinde Örnek Tepkime</span>
+                        <div class="font-mono text-xs text-emerald-200 leading-relaxed space-y-1">
+                            <p>2NH₃ + 3O₂ &rarr; 2HNO₂ + 2H₂O + <strong class="text-amber-300">Kimyasal Enerji</strong></p>
+                            <p>CO₂ + H₂O + <strong class="text-amber-300">Kimyasal Enerji</strong> &rarr; Glikoz + O₂</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-500 py-10 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2026 İnteraktif Biyoloji Portalı. Bitki Anatomisi, Kloroplast ve Kemosentez Öğrenim Platformu.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+        // Data for Plant Parts (5 lines of clean explanation without 1., 2., 3. prefixes)
+        const plantPartsData = {
+            cicek: {
+                title: "Genel Çiçek Yapısı",
+                badge: "Üreme Organı",
+                desc: [
+                    "Çiçek, kapalı tohumlu (Angiosperm) bitkilerin eşeyli üreme organıdır.",
+                    "Dıştan içe doğru çanak yaprak, taç yaprak, erkek organ ve dişi organdan oluşur.",
+                    "Döllenme olayından sonra tohum ve tohumu koruyan meyve yapısını meydana getirir.",
+                    "Çiçeğin bölümleri ve yapısı tozlaşma türüne (rüzgar veya böcekler) göre özelleşir.",
+                    "Hem erkek hem dişi organı barındıran çiçeklere tam (hermafrodit) çiçek denir."
+                ]
+            },
+            tac: {
+                title: "Taç Yaprak (Petal)",
+                badge: "Cazibe & Çekim Merkezi",
+                desc: [
+                    "Çiçeğin renkli, kokulu ve en dikkat çekici dış yapraklı kısmını oluşturur.",
+                    "İçerdiği kromoplast ve pigmentler sayesinde parlak renklere sahiptir.",
+                    "Temel görevi böcekleri ve kuşları çekerek tozlaşmayı (polenizasyon) kolaylaştırmaktır.",
+                    "Taban kısımlarında nektar (bal özü) salgılayan özel bezler bulundurabilir.",
+                    "Çiçeğin iç kısmındaki hassas üreme organlarını fiziksel etkenlerden korur."
+                ]
+            },
+            erkek: {
+                title: "Erkek Organ (Stamen)",
+                badge: "Polen Üretim Merkezi",
+                desc: [
+                    "Erkek organ; sapçık (filament) ve başçık (anter) olmak üzere iki kısımdan oluşur.",
+                    "Başçık kısmındaki polen keselerinde mayoz bölünmeyle polen hücreleri üretilir.",
+                    "Sapçık, başçığı taşıyarak polenlerin rüzgar veya böceklere kolay ulaşmasını sağlar.",
+                    "Olgunlaşan polenler açılarak dişi organın tepecik kısmına ulaşmaya çalışır.",
+                    "Bir çiçekte türe bağlı olarak çok sayıda erkek organ bulunabilir."
+                ]
+            },
+            disi: {
+                title: "Dişi Organ (Pistil / Carpel)",
+                badge: "Tohum Oluşum Yeri",
+                desc: [
+                    "Tepecik (stigma), dişicik borusu (stylus) ve yumurtalık (ovaryum) kısımlarından oluşur.",
+                    "Tepecik, yapışkan sıvısı sayesinde polenlerin tutunmasını ve çimlenmesini sağlar.",
+                    "Dişicik borusu, polenin tüp oluşturarak yumurtalığa ulaşmasına rehberlik eder.",
+                    "Yumurtalık içerisinde tohum taslağı ve dişi gamet (yumurta hücresi) yer alır.",
+                    "Çift döllenme sonrasında yumurtalık gelişerek etli meyve yapısına dönüşür."
+                ]
+            },
+            canak: {
+                title: "Çanak Yaprak (Sepal)",
+                badge: "Koruyucu Örtü",
+                desc: [
+                    "Çiçeğin en dış halkasını oluşturan genellikle yeşil renkli yapraklardır.",
+                    "Çiçek henüz tomurcuk halindeyken iç organları kurumaya ve zararlılara karşı korur.",
+                    "Kloroplast barındırdığı için fotosentez yaparak çiçeğe besin desteği sağlar.",
+                    "Çiçek tablası (reseptakulum) üzerine oturarak çiçeğin dik durmasına yardımcı olur.",
+                    "Çiçek açtıktan sonra bazı türlerde dökülürken, bazılarında meyve altında kalır."
+                ]
+            }
+        };
+
+        function showPlantInfo(partKey) {
+            // Update Active Tab Styling
+            document.querySelectorAll('.plant-tab').forEach(tab => tab.classList.remove('active-tab'));
+            const activeBtn = document.getElementById(`tab-${partKey}`);
+            if (activeBtn) activeBtn.classList.add('active-tab');
+
+            const data = plantPartsData[partKey];
+            const container = document.getElementById('plant-info-card');
+
+            container.innerHTML = `
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">${data.title}</h3>
+                        <span class="px-3 py-1 bg-emerald-950 text-emerald-400 border border-emerald-800/60 font-semibold text-xs rounded-full">${data.badge}</span>
+                    </div>
+                    <ul class="space-y-2.5 text-sm text-slate-300 leading-relaxed">
+                        ${data.desc.map(line => `<li class="flex items-start gap-2.5"><i class="fa-solid fa-angle-right text-emerald-400 mt-1 shrink-0"></i><span>${line}</span></li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        function switchChloroplastSubtab(tabName) {
+            const structBtn = document.getElementById('subtab-structure');
+            const photoBtn = document.getElementById('subtab-photosynthesis');
+            const structContent = document.getElementById('content-chloroplast-structure');
+            const photoContent = document.getElementById('content-photosynthesis');
+
+            if (tabName === 'structure') {
+                structBtn.classList.add('active-tab');
+                photoBtn.classList.remove('active-tab');
+                structContent.classList.remove('hidden');
+                photoContent.classList.add('hidden');
+            } else {
+                photoBtn.classList.add('active-tab');
+                structBtn.classList.remove('active-tab');
+                photoContent.classList.remove('hidden');
+                structContent.classList.add('hidden');
+            }
+        }
+
+        // Initialize default state
+        window.onload = function() {
+            showPlantInfo('cicek');
+        };
+    </script>
+</body>
+</html>
